@@ -41,20 +41,21 @@ class ViewController: UIViewController {
 }
 
 private func getQiitaAPI(){
-    guard let url = URL(string: "http://sweetsapi.c.fun.ac.jp/sweets")else {return}
+    guard let url = URL(string: "https://sweetsapi.c.fun.ac.jp/sweets")else {return}
     
     var request = URLRequest(url: url)
     request.httpMethod = "GET"
     
-    let task = URLSession.shared.dataTask(with: url){(data, respose, err) in
+    let task = URLSession.shared.dataTask(with: url){(data, response, err) in
         if let err = err{
             print("情報の取得に失敗しました。 :", err)
             return
         }
         if let data = data{
             do{
-                let qiita = try JSONDecoder().decode([Qiita].self, from: data)
-                print("json: ", qiita)
+//                print("json: ",data)
+//                let qiita = try JSONDecoder().decode([Qiita].self, from: data)
+//                print("json: ", qiita)
 
             }catch(let err){
                 print("情報の取得に失敗しました。:", err)
