@@ -8,25 +8,21 @@
 import UIKit
 
 //Dataを構造体で受け取る
-struct Qiita:Codable{
-    let title:String
-    let url:String
-    let user: User
+struct Sweet:Codable{
+    let sweets:Sweets
     
     enum CodingKeys:String, CodingKey{
-        case title = "title"
-        case url = "url"
-        case user = "user"
+        case sweets = "sweets"
     }
 }
 
-struct User:Codable{
+struct Sweets:Codable{
     let name:String
-    let profileImageUrl:String
+    let imagePath:String
     
     enum CodingKeys:String, CodingKey{
         case name = "name"
-        case profileImageUrl = "profile_image_url"
+        case imagePath = "imagePath"
     }
 }
 
@@ -54,8 +50,8 @@ private func getQiitaAPI(){
         if let data = data{
             do{
 //                print("json: ",data)
-//                let qiita = try JSONDecoder().decode([Qiita].self, from: data)
-//                print("json: ", qiita)
+                let qiita = try JSONDecoder().decode([Sweet].self, from: data)
+                print("json: ", qiita)
 
             }catch(let err){
                 print("情報の取得に失敗しました。:", err)
