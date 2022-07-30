@@ -30,13 +30,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getQiitaAPI()
+        getSweetsAPI()
     }
 
 
 }
 
-private func getQiitaAPI(){
+private func getSweetsAPI(){
     guard let url = URL(string: "https://sweetsapi.c.fun.ac.jp/sweets")else {return}
     
     var request = URLRequest(url: url)
