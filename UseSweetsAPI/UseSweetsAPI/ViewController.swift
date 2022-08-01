@@ -39,9 +39,6 @@ class ViewController: UIViewController {
 private func getSweetsAPI(){
     guard let url = URL(string: "https://sweetsapi.c.fun.ac.jp/sweets")else {return}
     
-    var request = URLRequest(url: url)
-    request.httpMethod = "GET"
-    
     let task = URLSession.shared.dataTask(with: url){(data, response, err) in
         if let err = err{
             print("情報の取得に失敗しました。 :", err)
