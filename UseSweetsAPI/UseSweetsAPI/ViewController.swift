@@ -6,17 +6,18 @@
 //
 
 import UIKit
+//var Sweets:Data = []
 
 //Dataを構造体で受け取る
-struct Sweet:Codable{
-    let sweets:Sweets
-    
+struct Sweets:Codable{
+    let sweets:[Sweet]
+
     enum CodingKeys:String, CodingKey{
         case sweets = "sweets"
     }
 }
 
-struct Sweets:Codable{
+struct Sweet:Codable{
     let name:String
     let imagePath:String
     
@@ -47,7 +48,7 @@ private func getSweetsAPI(){
         if let data = data{
             do{
 //                print("json: ",data)
-                let qiita = try JSONDecoder().decode([Sweet].self, from: data)
+                let qiita = try JSONDecoder().decode(Sweets.self, from: data)
                 print("json: ", qiita)
 
             }catch(let err){
