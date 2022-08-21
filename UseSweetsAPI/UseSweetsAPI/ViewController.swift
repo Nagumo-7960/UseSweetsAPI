@@ -28,7 +28,8 @@ struct Sweet:Codable{
 }
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var sweetsCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getSweetsAPI()
